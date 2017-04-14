@@ -42,7 +42,7 @@ function broadcast(type, data) {
  *   success: true
  * }
  */
-server.post('/garagem', (req, res, next) => {    
+server.post('/v1/garagem', (req, res, next) => {    
     broadcast('garagem', {gate: req.gate});
     res.send({success: true});      
 });
@@ -61,7 +61,7 @@ server.post('/garagem', (req, res, next) => {
  *   success: true
  * }
  */
-server.post('/luz', (req, res, next) => {
+server.post('/v1/luz', (req, res, next) => {
     broadcast('luz', {turn: req.turn});
     res.send({success: true});      
 });
@@ -79,7 +79,7 @@ server.post('/luz', (req, res, next) => {
  *   success: true
  * }
  */
-server.get('/temperatura', (req, res, next) => {
+server.get('/v1/temperatura', (req, res, next) => {
     res.send({success: true});      
 });
 
@@ -97,7 +97,7 @@ server.get('/temperatura', (req, res, next) => {
  *   success: true
  * }
  */
-server.post('/ar-condicionado', (req, res, next) => {
+server.post('/v1/ar-condicionado', (req, res, next) => {
     broadcast('ar-condicionado', {degrees: req.degrees});
     res.send({success: true});    
 });
@@ -116,7 +116,7 @@ server.post('/ar-condicionado', (req, res, next) => {
  *   success: true
  * }
  */
-server.post('/sensor', (req, res, next) => {
+server.post('/v1/sensor', (req, res, next) => {
     broadcast('sensor', {turn: req.turn});
     res.send({success: true});    
 });
