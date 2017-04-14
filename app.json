@@ -1,0 +1,8 @@
+{
+  "name": "fiap-iot",
+  "description": "Fiap IoT Rest API",
+  "repository": "https://github.com/tommelo/fiap-iot",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "restify", "heroku"],
+  "image": "heroku/nodejs"
+}

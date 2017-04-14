@@ -1,11 +1,10 @@
 var restify   = require('restify'),
     WebSocket = require('ws');
 
-var REST_PORT = 3000;
-var WS_PORT   = 3001;
+var TCP_PORT = (process.env.PORT || 5000);
 
-var wss = new WebSocket.Server({ port: WS_PORT });
 var server = restify.createServer();
+var wss = new WebSocket.Server({ server });
 
 wss.on('connection', (conn) => {
     console.log('A new client has connected to the server');
@@ -122,6 +121,6 @@ server.post('/sensor', (req, res, next) => {
     res.send({success: true});    
 });
 
-server.listen(REST_PORT, () => {
+server.listen(TCP_PORT, () => {
     console.log('Server is up and running!');
 });
