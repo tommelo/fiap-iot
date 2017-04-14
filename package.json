@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tommelo/fiap-iot#readme",
   "dependencies": {
+    "ecstatic": "^2.1.0",
     "restify": "^4.3.0",
     "ws": "^2.2.3"
   }
