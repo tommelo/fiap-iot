@@ -10,6 +10,9 @@ wss.on('connection', (conn) => {
     console.log('A new client has connected to the server');
 });
 
+/* serving static documentation */
+server.get('/', restify.serveStatic({ directory: './docs'}));
+
 /**
  * Broadcasts the event to the connected clients 
  * 
@@ -33,8 +36,11 @@ function broadcast(type, data) {
  * @apiName PostGaragem
  * @apiGroup Garagem
  * 
- * @apiParam {Object} gate 'open' para abrir, 'close' para fechar
+ * @apiParam {Object} body 'open' para abrir, 'close' para fechar. <br> Ex.: <br> {"gate": "open"}
  * @apiSuccess {Object} success Status da operação
+ * 
+ * @apiExample {curl} Example:
+ * curl -X POST https://fiap-iot.herokuapp.com/v1/garagem -d '{"gate": "open"}'
  * 
  * @apiSuccessExample Success-Response:
  * Http/1.1 200 OK
@@ -52,8 +58,11 @@ server.post('/v1/garagem', (req, res, next) => {
  * @apiName PostLuz
  * @apiGroup Luz
  * 
- * @apiParam {Object} turn 'on' para acender, 'off' para apagar
+ * @apiParam {Object} body 'on' para acender, 'off' para apagar. <br> Ex.: <br> {"turn": "on"}
  * @apiSuccess {Object} success Status da operação
+ * 
+ * @apiExample {curl} Example:
+ * curl -X POST https://fiap-iot.herokuapp.com/v1/luz -d '{"turn": "on"}'
  * 
  * @apiSuccessExample Success-Response:
  * Http/1.1 200 OK
@@ -73,6 +82,9 @@ server.post('/v1/luz', (req, res, next) => {
  *  
  * @apiSuccess {Object} success Status da operação
  * 
+ * @apiExample {curl} Example:
+ * curl https://fiap-iot.herokuapp.com/v1/temperatura
+ * 
  * @apiSuccessExample Success-Response:
  * Http/1.1 200 OK
  * {
@@ -88,8 +100,11 @@ server.get('/v1/temperatura', (req, res, next) => {
  * @apiName PostArCondicionado
  * @apiGroup ArCondicionado
  * 
- * @apiParam {Object} degrees Número inteiro representando a temperatura
+ * @apiParam {Object} body Número inteiro representando a temperatura <br> Ex.: <br> {"degrees": 20}
  * @apiSuccess {Object} success Status da operação
+ * 
+ * @apiExample {curl} Example:
+ *  curl -X POST https://fiap-iot.herokuapp.com/v1/ar-condicionado -d '{"degrees": 20}'
  * 
  * @apiSuccessExample Success-Response:
  * Http/1.1 200 OK
@@ -107,8 +122,11 @@ server.post('/v1/ar-condicionado', (req, res, next) => {
  * @apiName PostSensor
  * @apiGroup Sensor
  * 
- * @apiParam {Object} turn 'on' para acender, 'off' para apagar
+ * @apiParam {Object} body 'on' para ligar, 'off' para desligar. <br> Ex.: <br> {"turn": "off"} 
  * @apiSuccess {Object} success Status da operação
+ * 
+ * @apiExample {curl} Example:
+ * curl -X POST https://fiap-iot.herokuapp.com/v1/sensor -d '{"turn": "on"}'
  * 
  * @apiSuccessExample Success-Response:
  * Http/1.1 200 OK
