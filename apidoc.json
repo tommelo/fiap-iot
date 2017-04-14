@@ -1,0 +1,7 @@
+{
+  "name": "fiap-iot",
+  "version": "0.0.1",
+  "description": "Fiap IoT Rest API",
+  "title": "Fiap IoT Rest API",
+  "url" : "https://fiap-iot.herokuapp.com/v1"
+}
