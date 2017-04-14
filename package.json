@@ -1,0 +1,23 @@
+{
+  "name": "fiap-iot",
+  "version": "1.0.0",
+  "description": "Rest API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommelo/fiap-iot.git"
+  },
+  "author": "tommelo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommelo/fiap-iot/issues"
+  },
+  "homepage": "https://github.com/tommelo/fiap-iot#readme",
+  "dependencies": {
+    "restify": "^4.3.0",
+    "ws": "^2.2.3"
+  }
+}
