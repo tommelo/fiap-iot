@@ -1,11 +1,15 @@
-var restify   = require('restify'),
-    ecstatic  = require('ecstatic'),
+var restify   = require('restify'),    
     WebSocket = require('ws');
 
 var TCP_PORT = (process.env.PORT || 5000);
 
 var server = restify.createServer();
 var wss = new WebSocket.Server({ server });
+
+server.use(restify.acceptParser(server.acceptable));
+server.use(restify.queryParser());
+server.use(restify.bodyParser());
+server.use(restify.fullResponse());
 
 wss.on('connection', (conn) => {
     console.log('A new client has connected to the server');
@@ -136,7 +140,6 @@ server.post('/v1/sensor', (req, res, next) => {
     broadcast('sensor', {turn: req.turn});
     res.send({success: true});    
 });
-
 
 /* serving static documentation */
 server.get(/\/?.*/, restify.serveStatic({
