@@ -12,7 +12,7 @@ server.use(restify.bodyParser());
 server.use(restify.fullResponse());
 
 wss.on('connection', (conn) => {
-    setTimeout(() => { conn.send('keep-alive'), 200} );
+    //setTimeout(() => { conn.send('keep-alive'), 200} );
     console.log('A new client has connected to the server');
 });
 
@@ -52,7 +52,8 @@ function broadcast(type, data) {
  * }
  */
 server.post('/v1/garagem', (req, res, next) => {    
-    broadcast('garagem', {gate: req.gate});
+    var json = JSON.parse(req.body);
+    broadcast('garagem', {turn: json.turn});
     res.send({success: true});      
 });
 
@@ -74,7 +75,8 @@ server.post('/v1/garagem', (req, res, next) => {
  * }
  */
 server.post('/v1/luz', (req, res, next) => {
-    broadcast('luz', {turn: req.turn});
+    var json = JSON.parse(req.body);
+    broadcast('luz', {turn: json.turn});
     res.send({success: true});      
 });
 
@@ -116,7 +118,8 @@ server.get('/v1/temperatura', (req, res, next) => {
  * }
  */
 server.post('/v1/ar-condicionado', (req, res, next) => {
-    broadcast('ar-condicionado', {degrees: req.degrees});
+    var json = JSON.parse(req.body);
+    broadcast('ar-condicionado', {turn: json.turn});
     res.send({success: true});    
 });
 
@@ -138,7 +141,8 @@ server.post('/v1/ar-condicionado', (req, res, next) => {
  * }
  */
 server.post('/v1/sensor', (req, res, next) => {
-    broadcast('sensor', {turn: req.turn});
+    var json = JSON.parse(req.body);
+    broadcast('sensor', {turn: json.turn});
     res.send({success: true});    
 });
 
