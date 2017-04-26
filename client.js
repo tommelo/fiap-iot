@@ -10,6 +10,9 @@ ws.on('open', () => {
 
 ws.on('message', (data, flags) => {
 
+    if (data === 'keep-alive')
+        return;
+
    var json = JSON.parse(data);   
    if (json.evt === 'luz') 
        unirest.get('http://localhost:1880/1').end( (response) => {
