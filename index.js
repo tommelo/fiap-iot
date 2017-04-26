@@ -10,7 +10,6 @@ server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 server.use(restify.fullResponse());
-server.use(restify.urlEncodedBodyParser({ mapParams : false }));
 
 wss.on('connection', (conn) => {
     //setTimeout(() => { conn.send('keep-alive'), 200} );
@@ -79,7 +78,7 @@ server.post('/v1/garagem', (req, res, next) => {
  */
 server.post('/v1/luz', (req, res, next) => {
     console.log('/luz');    
-    console.log(req.body);
+    console.log(req.params.turn);
     var json = JSON.parse(req.body);
     console.log(json);    
 
