@@ -10,6 +10,7 @@ server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 server.use(restify.fullResponse());
+server.use(restify.urlEncodedBodyParser({ mapParams : false }));
 
 wss.on('connection', (conn) => {
     //setTimeout(() => { conn.send('keep-alive'), 200} );
