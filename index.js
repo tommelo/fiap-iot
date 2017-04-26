@@ -78,6 +78,8 @@ server.post('/v1/garagem', (req, res, next) => {
  */
 server.post('/v1/luz', (req, res, next) => {
     console.log('/luz');    
+    console.log(req.body);
+    
     var json = JSON.parse(req.body);
     console.log(JSON.stringify(json, null, 2));
     broadcast('luz', {turn: json.turn});
