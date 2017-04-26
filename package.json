@@ -19,6 +19,7 @@
   "dependencies": {
     "ecstatic": "^2.1.0",
     "restify": "^4.3.0",
+    "unirest": "^0.5.1",
     "ws": "^2.2.3"
   }
 }
