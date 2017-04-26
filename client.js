@@ -1,9 +1,10 @@
 var unirest = require('unirest');
 var WebSocket = require('ws');
 
-var ws = new WebSocket('http://fiap-iot.herokuapp.com');
+var ws = new WebSocket('wss://fiap-iot.herokuapp.com');
 
 ws.on('open', () => {
+    setTimeout(() => { ws.send('keep-alive'), 200} );
     console.log('connected to the server');
 });
 

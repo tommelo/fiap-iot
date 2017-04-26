@@ -12,6 +12,7 @@ server.use(restify.bodyParser());
 server.use(restify.fullResponse());
 
 wss.on('connection', (conn) => {
+    setTimeout(() => { conn.send('keep-alive'), 200} );
     console.log('A new client has connected to the server');
 });
 
