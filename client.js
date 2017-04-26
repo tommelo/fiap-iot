@@ -1,8 +1,7 @@
 var unirest = require('unirest');
 var WebSocket = require('ws');
 
-//var ws = new WebSocket('ws://ec2-52-91-183-133.compute-1.amazonaws.com:5000');
-var ws = new WebSocket('ws://localhost:5000');
+var ws = new WebSocket('ws://ec2-52-91-183-133.compute-1.amazonaws.com:5000');
 
 var routes = {
     'luz': {
@@ -35,7 +34,7 @@ ws.on('message', (data, flags) => {
     
     console.log(json.evt);
     console.log(json.data.turn);
-    
+
     var resource = routes[json.evt][json.data.turn];
     var endpoint = 'http://localhost:1880' + resource;
 
