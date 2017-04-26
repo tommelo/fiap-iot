@@ -52,6 +52,7 @@ function broadcast(type, data) {
  * }
  */
 server.post('/v1/garagem', (req, res, next) => {    
+    console.log('/garagem');
     var json = JSON.parse(req.body);
     broadcast('garagem', {turn: json.turn});
     res.send({success: true});      
@@ -75,6 +76,7 @@ server.post('/v1/garagem', (req, res, next) => {
  * }
  */
 server.post('/v1/luz', (req, res, next) => {
+    console.log('/luz');
     var json = JSON.parse(req.body);
     broadcast('luz', {turn: json.turn});
     res.send({success: true});      
@@ -118,6 +120,7 @@ server.get('/v1/temperatura', (req, res, next) => {
  * }
  */
 server.post('/v1/ar-condicionado', (req, res, next) => {
+    console.log('/ar-condicionado');
     var json = JSON.parse(req.body);
     broadcast('ar-condicionado', {turn: json.turn});
     res.send({success: true});    
@@ -141,6 +144,7 @@ server.post('/v1/ar-condicionado', (req, res, next) => {
  * }
  */
 server.post('/v1/sensor', (req, res, next) => {
+    console.log('/sensor');
     var json = JSON.parse(req.body);
     broadcast('sensor', {turn: json.turn});
     res.send({success: true});    
