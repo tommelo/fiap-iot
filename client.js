@@ -4,6 +4,7 @@ var WebSocket = require('ws');
 var ws = new WebSocket('ws://ec2-52-91-183-133.compute-1.amazonaws.com:5000');
 
 var routes = {
+    
     'luz': {
         'on': '/1',
         'off': '/2'
@@ -14,10 +15,16 @@ var routes = {
         'off': '/5'
     },
 
+    'sensor': {
+        'on': '/6',
+        'off': '/7'
+    },
+
     'garagem': {
         'on': '/8',
         'off': '/9'
     }
+
 }
 
 ws.on('open', () => {
