@@ -54,9 +54,9 @@ function broadcast(type, data) {
 server.post('/v1/garagem', (req, res, next) => {    
     console.log('/garagem');
     console.log(req.params.gate);    
-    var turn = 'open';
+    var turn = 'on';
     if (req.params.gate === 'close')
-        turn = 'close';
+        turn = 'off';
     
     broadcast('garagem', {turn: turn});
     res.send({success: true});      
